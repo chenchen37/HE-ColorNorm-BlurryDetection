@@ -1,4 +1,3 @@
-from email.policy import default
 import imp
 import os
 import argparse
@@ -6,9 +5,11 @@ import numpy as np
 from PIL import Image
 
 from normalizeStaining import normalizeStaining
-from blurryDetection import variance_of_laplacian, fft_blur_detection
+from blurryDetection import varianceLaplacian, fftBlurDetection
 
 if __name__ ==  '__main__':
+
+    # Both normalize and blurry detection
     
     parser = argparse.ArgumentParser()
     parser.add_argument('--patchDir', type=str, help='directory to patches')

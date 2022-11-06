@@ -1,14 +1,14 @@
 import cv2
 import numpy as np
 
-def variance_of_laplacian(image, ksize=13):
+def varianceLaplacian(image, ksize=13):
     '''
     Input: image array (gray scale)
     Output: variance of Laplacian
     '''
     return cv2.Laplacian(image, cv2.CV_64F, ksize=ksize).var()
 
-def fft_blur_detection(image, size, thresh):
+def fftBlurDetection(image, size, thresh):
     h, w = image.shape
     cX, cY = int(w/2.), int(h/2.)
     

@@ -103,10 +103,13 @@ def normalizeStaining(img, saveNorm=None, saveHE=None, Io=240, alpha=1, beta=0.1
     
     
 if __name__=='__main__':
+
+    # Only normalize the patches
     
     parser = argparse.ArgumentParser()
     parser.add_argument('--imageFile', type=str, default='example1.tif', help='RGB image file')
-    parser.add_argument('--saveFile', type=str, default='output', help='save file')
+    parser.add_argument('--saveNorm', type=str, default='no', help='normalized image save path, if no, it will not generate it')
+    parser.add_argument('--saveHE', type=str, default='no', help='H&E image save path, if no, it will not generate it')
     parser.add_argument('--Io', type=int, default=240)
     parser.add_argument('--alpha', type=float, default=1)
     parser.add_argument('--beta', type=float, default=0.15)
@@ -115,7 +118,8 @@ if __name__=='__main__':
     img = np.array(Image.open(args.imageFile))
 
     normalizeStaining(img = img,
-                      saveFile = args.saveFile,
+                      saveNorm=args.saveNorm,
+                      saveHE=args.saveHE,
                       Io = args.Io,
                       alpha = args.alpha,
                       beta = args.beta)
