@@ -1,4 +1,3 @@
-import imp
 import os
 import argparse
 import numpy as np
@@ -23,3 +22,14 @@ if __name__ ==  '__main__':
     parser.add_argument('--fftThreshold', type=float, default=0.)
     args = parser.parse_args()
 
+    for fname in os.listdir(args.patchDir):
+        img = np.array(Image.open(os.path.join(args.patchDir, fname)))
+
+        normalizeStaining(img = img,
+                          saveNorm=args.saveNorm,
+                          saveHE=args.saveHE,
+                          Io = args.Io,
+                          alpha = args.alpha,
+                          beta = args.beta)
+
+        
